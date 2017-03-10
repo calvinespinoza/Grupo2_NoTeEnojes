@@ -23,5 +23,4 @@ void PiezaVerde::setColor(string pColor)
 
 PiezaVerde::~PiezaVerde()
 {
-
 }

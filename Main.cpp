@@ -6,6 +6,7 @@
 
 #include <string>
 #include <iostream>
+#include <random>
 
 using namespace std;
 
@@ -188,5 +189,11 @@ char** inicializarMatriz(int size){
 
 int tirarDado()
 {
-	return 0;
+	int resp;
+
+	srand(time(NULL));
+    resp = rand() % 6 + 1;
+    cout << "El numero que salio es: " << resp << "!\n";
+
+	return resp;
 }
