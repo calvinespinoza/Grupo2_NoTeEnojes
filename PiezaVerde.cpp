@@ -21,7 +21,7 @@ void PiezaVerde::setColor(string pColor)
 	color = pColor;
 }
 
-PiezaVerde::~PiezaVerde
+PiezaVerde::~PiezaVerde()
 {
 
 }

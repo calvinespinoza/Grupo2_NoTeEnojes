@@ -7,7 +7,7 @@ using namespace std;
 class Pieza
 {
 
-	private:
+	protected:
 		int posx;
 		int posy;
 		string color;

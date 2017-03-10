@@ -21,7 +21,7 @@ void PiezaAmarilla::setColor(string pColor)
 	color = pColor;
 }
 
-PiezaAmarilla::~PiezaAmarilla
+PiezaAmarilla::~PiezaAmarilla()
 {
 
 }
