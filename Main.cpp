@@ -9,8 +9,8 @@
 
 using namespace std;
 
-void imprimirMatriz(int**, int);
-int** inicializarMatriz(int);
+void imprimirMatriz(char**, int);
+char** inicializarMatriz(int);
 
 int main()
 {
