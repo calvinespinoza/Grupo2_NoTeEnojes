@@ -133,6 +133,8 @@ int main()
 	int y1 = pieza1 -> getPosY();
 	int x2 = pieza2 -> getPosX();
 	int y2 = pieza2 -> getPosY();
+	int vuelta1 = 0;
+	int vuelta2 = 0;
 
 	for (int i = 0; i < size; i++) {
 		for (int j = 0; j < size; j++) {
@@ -159,31 +161,148 @@ int main()
 	imprimirMatriz(mat, size);
 
 	cout << endl;
-	int dice1 = 4;
-	int dice2 = 2;
-	for (int k = 0; k < (dice1 + dice2); k++) {
-		if (x1 == 0 && (y1 > 0 || y1 == 14)) { //Izquierda
-			mat[x1][y1] = 'x';
-			y1--;
-			pieza1 -> setPosY(y1);
-			mat[x1][y1] = '+';
-		} else if ((x1 == 0 || x1 < 14) && y1 == 0){ //Abajo
-			mat[x1][y1] = 'x';
-			x1++;
-			pieza1 -> setPosX(x1);
-			mat[x1][y1] = '+';
-		} else if (x1 == 14 && (y1 == 0 || y1 < 14)){ //Derecha
-			mat[x1][y1] = 'x';
-			y1++;
-			pieza1 -> setPosY(y1);
-			mat[x1][y1] = '+';
-		} else if ((x1 == 14 || x1 > 0) && y1 == 14){ //Arriba
-			mat[x1][y1] = 'x';
-			x1--;
-			pieza1 -> setPosX(x1);
-			mat[x1][y1] = '+';
+	bool continue = true;
+	steing ganador;
+
+	int dice1;
+	int dice2;
+	while (continue == true) {
+		dice1 = tirarDado();
+		dice2 = tirarDado();
+		for (int k = 0; k < (dice1 + dice2); k++) {
+			if (x1 == 0 && (y1 > 0 || y1 == 14)) { //Izquierda
+				if (y1 == 7 && vuelta1 == 1)
+				{
+					mat[x1][y1] = 'x';
+					x1++;
+					pieza1 -> setPosX(x1);
+					mat[x1][y1] = '+';
+					if (x1 == 7 && y1 == 7)
+					{
+						k = dice1 + dice2;
+						continue = false;
+						ganador = "El ganador es el jugador 1, con el color: " << pieza1 -> getColor() << endl;
+					}
+				} else if(y1 == 7) {
+					mat[x1][y1] = 'x';
+					y1--;
+					pieza1 -> setPosY(y1);
+					mat[x1][y1] = '+';
+					vuelta1++;
+				} else {
+					mat[x1][y1] = 'x';
+					y1--;
+					pieza1 -> setPosY(y1);
+					mat[x1][y1] = '+';
+				}
+			} else if ((x1 == 0 || x1 < 14) && y1 == 0){ //Abajo
+				if (x1 == 7 && vuelta1 == 1)
+				{
+					mat[x1][y1] = 'x';
+					y1++;
+					pieza1 -> setPosY(y1);
+					mat[x1][y1] = '+';
+					if (x1 == 7 && y1 == 7)
+					{
+						k = dice1 + dice2;
+						continue = false;
+						ganador = "El ganador es el jugador 1, con el color: " << pieza1 -> getColor() << endl;
+					}
+				} else if (x1 == 7)
+				{
+					mat[x1][y1] = 'x';
+					x1++;
+					pieza1 -> setPosX(x1);
+					mat[x1][y1] = '+';
+					vuelta1++;
+				} else {
+					mat[x1][y1] = 'x';
+					x1++;
+					pieza1 -> setPosX(x1);
+					mat[x1][y1] = '+';
+				}
+			} else if (x1 == 14 && (y1 == 0 || y1 < 14)){ //Derecha
+				if (y1 == 7 && vuelta1 == 1)
+				{
+					mat[x1][y1] = 'x';
+					x1--;
+					pieza1 -> setPosX(x1);
+					mat[x1][y1] = '+';
+					if (x1 == 7 && y1 == 7)
+					{
+						k = dice1 + dice2;
+						continue = false;
+						ganador = "El ganador es el jugador 1, con el color: " << pieza1 -> getColor() << endl;
+					}
+				} else if (y1 == 7)
+				{
+					mat[x1][y1] = 'x';
+					y1++;
+					pieza1 -> setPosY(y1);
+					mat[x1][y1] = '+';
+					vuelta1++;
+				} else {
+					mat[x1][y1] = 'x';
+					y1++;
+					pieza1 -> setPosY(y1);
+					mat[x1][y1] = '+';
+				}
+			} else if ((x1 == 14 || x1 > 0) && y1 == 14){ //Arriba
+				if (x1 == 7 && vuelta1 == 1)
+				{
+					mat[x1][y1] = 'x';
+					y1--;
+					pieza1 -> setPosY(y1);
+					mat[x1][y1] = '+';
+					if (x1 == 7 && y1 == 7)
+					{
+						k = dice1 + dice2;
+						continue = false;
+						ganador = "El ganador es el jugador 1, con el color: " << pieza1 -> getColor() << endl;
+					}
+				} else if (x1 == 7)
+				{
+					mat[x1][y1] = 'x';
+					x1--;
+					pieza1 -> setPosX(x1);
+					mat[x1][y1] = '+';
+					vuelta1++;
+				} else {
+					mat[x1][y1] = 'x';
+					x1--;
+					pieza1 -> setPosX(x1);
+					mat[x1][y1] = '+';
+				}
+			}
 		}
-	}
+
+		dice1 = tirarDado();
+		dice2 = tirarDado();
+		for (int k = 0; k < (dice1 + dice2); k++) {
+			if (x2 == 0 && (y2 > 0 || y2 == 14)) { //Izquierda
+				mat[x1][y1] = 'x';
+				y2--;
+				pieza1 -> setPosY(y2);
+				mat[x2][y2] = '+';
+			} else if ((x2 == 0 || x2 < 14) && y2 == 0){ //Abajo
+				mat[x2][y2] = 'x';
+				x2++;
+				pieza1 -> setPosX(x2);
+				mat[x2][y2] = '+';
+			} else if (x2 == 14 && (y2 == 0 || y2 < 14)){ //Derecha
+				mat[x2][y2] = 'x';
+				y2++;
+				pieza1 -> setPosY(y2);
+				mat[x2][y2] = '+';
+			} else if ((x2 == 14 || x2 > 0) && y2 == 14){ //Arriba
+				mat[x2][y2] = 'x';
+				x2--;
+				pieza1 -> setPosX(x2);
+				mat[x2][y2] = '+';
+			}
+		}
+
+	}//Fin while juego
 
 	imprimirMatriz(mat, size);
 	return 0;
