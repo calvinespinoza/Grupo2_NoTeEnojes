@@ -43,3 +43,8 @@ void Pieza::setColor(string pColor)
 {
 	color = pColor;
 }
+
+Pieza::~Pieza()
+{
+	
+}
