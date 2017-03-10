@@ -20,8 +20,8 @@ int main()
 	char** mat = NULL;
 	mat = inicializarMatriz(size);
 
-	Pieza* pieza1 = new Pieza();
-	Pieza* pieza2 = new Pieza();
+	Pieza* pieza1;
+	Pieza* pieza2;
 
 	do {
 		cout << "JUGADOR 1" << endl
@@ -36,20 +36,20 @@ int main()
 		<< "Elegir color de tu pieza: " << endl;
 		if (opcion1 == 1)
 		{
-			PiezaAzul* pieza1 = new PiezaAzul(14, 14, "Azul");
+			pieza1 = new PiezaAzul(14, 14, "Azul");
 			cout << "1. Rojo\n2. Verde\n3. Amarillo\n";
 			cin >> opcion2;
 			if (opcion2 == 1)
 			{
-				PiezaRoja* pieza2 = new PiezaRoja(0, 14, "Roja");
+				pieza2 = new PiezaRoja(0, 14, "Roja");
 			}
 			else if (opcion2 == 2)
 			{
-				PiezaVerde* pieza2 = new PiezaVerde(0, 0, "Verde");
+				pieza2 = new PiezaVerde(0, 0, "Verde");
 			}
 			else if (opcion2 == 3)
 			{
-				PiezaAmarilla* pieza2 = new PiezaAmarilla(14, 0, "Amarillo");
+				pieza2 = new PiezaAmarilla(14, 0, "Amarillo");
 			}
 			else
 			{
@@ -59,20 +59,20 @@ int main()
 		}
 		else if (opcion1 == 2)
 		{
-			PiezaRoja* pieza1 = new PiezaRoja(0, 14, "Roja");
+			pieza1 = new PiezaRoja(0, 14, "Roja");
 			cout << "1. Azul\n2. Verde\n3. Amarillo\n";
 			cin >> opcion2;
 			if (opcion2 == 1)
 			{
-				PiezaAzul* pieza2 = new PiezaAzul(14, 14, "Azul");
+				pieza2 = new PiezaAzul(14, 14, "Azul");
 			}
 			else if (opcion2 == 2)
 			{
-				PiezaVerde* pieza2 = new PiezaVerde(0, 0, "Verde");
+				pieza2 = new PiezaVerde(0, 0, "Verde");
 			}
 			else if (opcion2 == 3)
 			{
-				PiezaAmarilla* pieza2 = new PiezaAmarilla(14, 0, "Amarillo");
+				pieza2 = new PiezaAmarilla(14, 0, "Amarillo");
 			}
 			else
 			{
@@ -81,20 +81,20 @@ int main()
 		}
 		else if (opcion1 == 3)
 		{
-			PiezaVerde* pieza1 = new PiezaVerde(0, 0, "Verde");
+			pieza1 = new PiezaVerde(0, 0, "Verde");
 			cout << "1. Azul\n2. Rojo\n3. Amarillo\n";
 			cin >> opcion2;
 			if (opcion2 == 1)
 			{
-				PiezaAzul* pieza2 = new PiezaAzul(14, 14, "Azul");
+				pieza2 = new PiezaAzul(14, 14, "Azul");
 			}
 			else if (opcion2 == 2)
 			{
-				PiezaRoja* pieza2 = new PiezaRoja(0, 14, "Roja");
+				pieza2 = new PiezaRoja(0, 14, "Roja");
 			}
 			else if (opcion2 == 3)
 			{
-				PiezaAmarilla* pieza2 = new PiezaAmarilla(14, 0, "Amarillo");
+				pieza2 = new PiezaAmarilla(14, 0, "Amarillo");
 			}
 			else
 			{
@@ -102,20 +102,20 @@ int main()
 			}
 		} else if (opcion1 == 4)
 		{
-			PiezaAmarilla* pieza1 = new PiezaAmarilla(14, 0, "Amarillo");
+			pieza1 = new PiezaAmarilla(14, 0, "Amarillo");
 			cout << "1. Azul\n2. Rojo\n3. Verde\n";
 			cin >> opcion2;
 			if (opcion2 == 1)
 			{
-				PiezaAzul* pieza2 = new PiezaAzul(14, 14, "Azul");
+				pieza2 = new PiezaAzul(14, 14, "Azul");
 			}
 			else if (opcion2 == 2)
 			{
-				PiezaRoja* pieza2 = new PiezaRoja(0, 14, "Roja");
+				pieza2 = new PiezaRoja(0, 14, "Roja");
 			}
 			else if (opcion2 == 3)
 			{
-				PiezaVerde* pieza2 = new PiezaVerde(0, 0, "Verde");
+				pieza2 = new PiezaVerde(0, 0, "Verde");
 			}
 			else
 			{
@@ -130,6 +130,8 @@ int main()
 	int two = pieza1 -> getPosY();
 	int three = pieza2 -> getPosX();
 	int four = pieza2 -> getPosY();
+
+	string uno = pieza1 -> getColor();
 
 	cout << one << endl << two << endl << three << endl << four << endl;
 
