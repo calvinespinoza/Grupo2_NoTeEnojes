@@ -2,10 +2,12 @@
 
 PiezaVerde::PiezaVerde()
 {
-
+	posx = 0;
+	posy = 0;
+	color = "";
 }
 
-PiezaVerde::PiezaVerde(int pPosx, int pPosy, string pColor)
+PiezaVerde::PiezaVerde(int pPosx, int pPosy, string pColor) : Pieza(pPosx, pPosy, pColor)
 {
 	posx = pPosx;
 	posy = pPosy;
