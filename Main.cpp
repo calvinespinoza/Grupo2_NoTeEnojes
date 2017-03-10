@@ -156,55 +156,34 @@ int main()
 				mat[i][j] = ' ';
 		}
 	}
-	cout << "AQui13\n";
 	imprimirMatriz(mat, size);
 
 	cout << endl;
-	cout << "AQui1\n";
 	int dice1 = 4;
 	int dice2 = 2;
-	cout << "AQui10\n";
 	for (int k = 0; k < (dice1 + dice2); k++) {
-		cout << "AQui11\n";
-		/*for (int i = 0; i < size; i++) {
-			cout << "AQui12\n";
-			for (int j = 0; j < size; j++) {
-				cout << "AQui1\n";*/
-				if (x1 == 0 && (y1 > 0 || y1 == 14)) { //Izquier
-					cout << "AQui2\n";
-					//if (j == y1 - 1)
-					mat[x1][y1] = 'x';
-					y1--;
-					pieza1 -> setPosY(y1);
-					mat[x1][y1] = '+';
-					cout << "AQui3\n";
-				} else if ((x1 == 0 || x1 < 14) && y1 == 0){ //Abajo
-					//if (i == x1 - 1)
-					cout << "AQui4\n";
-					mat[x1][y1] = 'x';
-					x1++;
-					pieza1 -> setPosX(x1);
-					mat[x1][y1] = '+';
-					cout << "AQui5\n";
-				} else if (x1 == 14 && (y1 == 0 || y1 < 14)){ //Derecha
-					cout << "AQui6\n";
-					mat[x1][y1] = 'x';
-					y1++;
-					pieza1 -> setPosY(y1);
-					mat[x1][y1] = '+';
-					cout << "AQui7\n";
-				} else if ((x1 == 14 || x1 > 0) && y1 == 14){ //Arriba
-					cout << "AQui8\n"; 
-					mat[x1][y1] = 'x';
-					x1--;
-					pieza1 -> setPosX(x1);
-					mat[x1][y1] = '+';
-					cout << "AQui9\n";
-				}
-			/*}
-		}*/
+		if (x1 == 0 && (y1 > 0 || y1 == 14)) { //Izquierda
+			mat[x1][y1] = 'x';
+			y1--;
+			pieza1 -> setPosY(y1);
+			mat[x1][y1] = '+';
+		} else if ((x1 == 0 || x1 < 14) && y1 == 0){ //Abajo
+			mat[x1][y1] = 'x';
+			x1++;
+			pieza1 -> setPosX(x1);
+			mat[x1][y1] = '+';
+		} else if (x1 == 14 && (y1 == 0 || y1 < 14)){ //Derecha
+			mat[x1][y1] = 'x';
+			y1++;
+			pieza1 -> setPosY(y1);
+			mat[x1][y1] = '+';
+		} else if ((x1 == 14 || x1 > 0) && y1 == 14){ //Arriba
+			mat[x1][y1] = 'x';
+			x1--;
+			pieza1 -> setPosX(x1);
+			mat[x1][y1] = '+';
+		}
 	}
-
 
 	imprimirMatriz(mat, size);
 	return 0;
