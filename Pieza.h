@@ -17,6 +17,12 @@ class Pieza
 		Pieza();
 		Pieza(int, int, string);
 		~Pieza();
+		int getPosX();
+		int getPosY();
+		virtual string getColor();
+		void setPosX(int);
+		void setPosY(int);
+		virtual void setColor(string);
 };
 
 #endif
