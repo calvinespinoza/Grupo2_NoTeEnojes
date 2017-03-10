@@ -126,19 +126,17 @@ int main()
 	} while(ask);
 
 
-	int one = pieza1 -> getPosX();
-	int two = pieza1 -> getPosY();
-	int three = pieza2 -> getPosX();
-	int four = pieza2 -> getPosY();
-
-	string uno = pieza1 -> getColor();
-
-	cout << one << endl << two << endl << three << endl << four << endl;
+	int x1 = pieza1 -> getPosX();
+	int y1 = pieza1 -> getPosY();
+	int x2 = pieza2 -> getPosX();
+	int y2 = pieza2 -> getPosY();
 
 	for (int i = 0; i < size; i++) {
 		for (int j = 0; j < size; j++) {
-			if (i == 0 || i == 14|| j == 0 || j == 14)
-				mat[i][j] = 'x';
+			if (i == pieza1 -> getPosX() && j == pieza1 -> getPosY())
+				mat[i][j] = '+';
+			else if (i == pieza2 -> getPosX() && j == pieza2 -> getPosY())
+				mat[i][j] = '-';
 			else if (i == 7 && j == 7)
 				mat[i][j] = 'o';
 			else if (i == 7 && j < 7)
@@ -149,12 +147,43 @@ int main()
 				mat[i][j] = '/';
 			else if (i > 7 && j == 7)
 				mat[i][j] = '#';
-			else if (i == pieza1 -> getPosX() && j == pieza1 -> getPosY())
-				mat[i][j] = '1';
-			else if (i == pieza2 -> getPosX() && j == pieza2 -> getPosY())
-				mat[i][j] = '2';
+			else if (i == 0 || i == 14|| j == 0 || j == 14)
+				mat[i][j] = 'x';
 			else
 				mat[i][j] = ' ';
+		}
+	}
+	imprimirMatriz(mat, size);
+	cout << endl;
+	int dice1 = 10;
+	int dice2 = 14;
+	for (int k = 0; k < dice1+dice2; k++) {
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				if (i == 0 && (j > 0 || j == 14)) {
+					//if (j == y1 - 1)
+					mat[x1][y1] = 'x';
+					y1--;
+					pieza1 -> setPosY(y1);
+					mat[x1][y1] = '+';
+				} else if ((i == 0 || i < 14) && j == 0){
+					//if (i == x1 - 1)
+					mat[x1][y1] = 'x';
+					x1++;
+					pieza1 -> setPosX(x1);
+					mat[x1][y1] = '+';
+				} else if (i == 14 && (j == 0 || j < 14)){
+					mat[x1][y1] = 'x';
+					y1++;
+					pieza1 -> setPosY(y1);
+					mat[x1][y1] = '+';
+				} else if ((i == 14 || i > 0) && j == 14){
+					mat[x1][y1] = 'x';
+					x1--;
+					pieza1 -> setPosX(x1);
+					mat[x1][y1] = '+';
+				}
+			}
 		}
 	}
 
