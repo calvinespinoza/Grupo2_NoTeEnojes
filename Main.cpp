@@ -171,223 +171,258 @@ int main()
 		dice2 = tirarDado();
 		for (int k = 0; k < (dice1 + dice2); k++) {
 			if (x1 == 0 && (y1 > 0 || y1 == 14)) { //Izquierda
-				if (y1 == 7 && vuelta1 == 1)
-				{
-					mat[x1][y1] = 'x';
-					x1++;
-					pieza1 -> setPosX(x1);
-					mat[x1][y1] = '+';
-					if (x1 == 7 && y1 == 7)
-					{
-						k = dice1 + dice2;
-						continueP = false;
-						ganador = "El ganador es el jugador 1, con el color: " + pieza1 -> getColor() + "\n";
-					}
-				} else if(y1 == 7) {
+				if(y1 == 7) {
 					mat[x1][y1] = 'x';
 					y1--;
 					pieza1 -> setPosY(y1);
-					mat[x1][y1] = '+';
+					mat[x1][y1] = '1';
 					vuelta1++;
 				} else {
 					mat[x1][y1] = 'x';
 					y1--;
 					pieza1 -> setPosY(y1);
-					mat[x1][y1] = '+';
+					mat[x1][y1] = '1';
 				}
 			} else if ((x1 == 0 || x1 < 14) && y1 == 0){ //Abajo
-				if (x1 == 7 && vuelta1 == 1)
-				{
-					mat[x1][y1] = 'x';
-					y1++;
-					pieza1 -> setPosY(y1);
-					mat[x1][y1] = '+';
-					if (x1 == 7 && y1 == 7)
-					{
-						k = dice1 + dice2;
-						continueP = false;
-						ganador = "El ganador es el jugador 1, con el color: " + pieza1 -> getColor() + "\n";
-					}
-				} else if (x1 == 7)
+				if (x1 == 7)
 				{
 					mat[x1][y1] = 'x';
 					x1++;
 					pieza1 -> setPosX(x1);
-					mat[x1][y1] = '+';
+					mat[x1][y1] = '1';
 					vuelta1++;
 				} else {
 					mat[x1][y1] = 'x';
 					x1++;
 					pieza1 -> setPosX(x1);
-					mat[x1][y1] = '+';
+					mat[x1][y1] = '1';
 				}
 			} else if (x1 == 14 && (y1 == 0 || y1 < 14)){ //Derecha
-				if (y1 == 7 && vuelta1 == 1)
-				{
-					mat[x1][y1] = 'x';
-					x1--;
-					pieza1 -> setPosX(x1);
-					mat[x1][y1] = '+';
-					if (x1 == 7 && y1 == 7)
-					{
-						k = dice1 + dice2;
-						continueP = false;
-						ganador = "El ganador es el jugador 1, con el color: " + pieza1 -> getColor() + "\n";
-					}
-				} else if (y1 == 7)
+				if (y1 == 7)
 				{
 					mat[x1][y1] = 'x';
 					y1++;
 					pieza1 -> setPosY(y1);
-					mat[x1][y1] = '+';
+					mat[x1][y1] = '1';
 					vuelta1++;
 				} else {
 					mat[x1][y1] = 'x';
 					y1++;
 					pieza1 -> setPosY(y1);
-					mat[x1][y1] = '+';
+					mat[x1][y1] = '1';
 				}
 			} else if ((x1 == 14 || x1 > 0) && y1 == 14){ //Arriba
-				if (x1 == 7 && vuelta1 == 1)
+				if (x1 == 7)
 				{
 					mat[x1][y1] = 'x';
+					x1--;
+					pieza1 -> setPosX(x1);
+					mat[x1][y1] = '1';
+					vuelta1++;
+				} else {
+					mat[x1][y1] = 'x';
+					x1--;
+					pieza1 -> setPosX(x1);
+					mat[x1][y1] = '1';
+				}
+			}
+
+			if (pieza1 -> getColor() == "Azul") {
+				if (x1 == 7 && vuelta1 == 4)
+				{
+					mat[x1][y1] = '/';
 					y1--;
 					pieza1 -> setPosY(y1);
-					mat[x1][y1] = '+';
+					mat[x1][y1] = '1';
 					if (x1 == 7 && y1 == 7)
 					{
 						k = dice1 + dice2;
 						continueP = false;
 						ganador = "El ganador es el jugador 1, con el color: " + pieza1 -> getColor() + "\n";
 					}
-				} else if (x1 == 7)
+				}
+			}
+			if (pieza1 -> getColor() == "Roja") {
+				if (y1 == 7 && vuelta1 == 4)
 				{
-					mat[x1][y1] = 'x';
+					mat[x1][y1] = '%';
+					x1++;
+					pieza1 -> setPosX(x1);
+					mat[x1][y1] = '1';
+					if (x1 == 7 && y1 == 7)
+					{
+						k = dice1 + dice2;
+						continueP = false;
+						ganador = "El ganador es el jugador 1, con el color: " + pieza1 -> getColor() + "\n";
+					}
+				}
+			}
+			if (pieza1 -> getColor() == "Verde") {
+				if (x1 == 7 && vuelta1 == 4)
+				{
+					mat[x1][y1] = '$';
+					y1++;
+					pieza1 -> setPosY(y1);
+					mat[x1][y1] = '1';
+					if (x1 == 7 && y1 == 7)
+					{
+						k = dice1 + dice2;
+						continueP = false;
+						ganador = "El ganador es el jugador 1, con el color: " + pieza1 -> getColor() + "\n";
+					}
+				}
+			}
+			if (pieza1 -> getColor() == "Amarillo") {
+				if (y1 == 7 && vuelta1 == 4)
+				{
+					mat[x1][y1] = '#';
 					x1--;
 					pieza1 -> setPosX(x1);
-					mat[x1][y1] = '+';
-					vuelta1++;
-				} else {
-					mat[x1][y1] = 'x';
-					x1--;
-					pieza1 -> setPosX(x1);
-					mat[x1][y1] = '+';
+					mat[x1][y1] = '1';
+					if (x1 == 7 && y1 == 7)
+					{
+						k = dice1 + dice2;
+						continueP = false;
+						ganador = "El ganador es el jugador 1, con el color: " + pieza1 -> getColor() + "\n";
+					}
 				}
 			}
 		}
+
+
 
 		dice1 = tirarDado();
 		dice2 = tirarDado();
 		for (int k = 0; k < (dice1 + dice2); k++) {
 			if (x2 == 0 && (y2 > 0 || y2 == 14)) { //Izquierda
-				if (y2 == 7 && vuelta2 == 1)
-				{
-					mat[x2][y2] = 'x';
-					x2++;
-					pieza2 -> setPosX(x2);
-					mat[x2][y2] = '+';
-					if (x2 == 7 && y2 == 7)
-					{
-						k = dice1 + dice2;
-						continueP = false;
-						ganador = "El ganador es el jugador 1, con el color: " + pieza2 -> getColor() + "\n";
-					}
-				} else if(y2 == 7) {
+				if(y2 == 7) {
 					mat[x2][y2] = 'x';
 					y2--;
 					pieza2 -> setPosY(y2);
-					mat[x2][y2] = '+';
+					mat[x2][y2] = '2';
 					vuelta2++;
 				} else {
 					mat[x2][y2] = 'x';
 					y2--;
 					pieza2 -> setPosY(y2);
-					mat[x2][y2] = '+';
+					mat[x2][y2] = '2';
 				}
 			} else if ((x2 == 0 || x2 < 14) && y2 == 0){ //Abajo
-				if (x2 == 7 && vuelta2 == 1)
-				{
-					mat[x2][y2] = 'x';
-					y2++;
-					pieza2 -> setPosY(y2);
-					mat[x2][y2] = '+';
-					if (x2 == 7 && y2 == 7)
-					{
-						k = dice1 + dice2;
-						continueP = false;
-						ganador = "El ganador es el jugador 1, con el color: " + pieza2 -> getColor() + "\n";
-					}
-				} else if (x2 == 7)
+ 				if (x2 == 7)
 				{
 					mat[x2][y2] = 'x';
 					x2++;
 					pieza2 -> setPosX(x2);
-					mat[x2][y2] = '+';
+					mat[x2][y2] = '2';
 					vuelta2++;
 				} else {
 					mat[x2][y2] = 'x';
 					x2++;
 					pieza2 -> setPosX(x2);
-					mat[x2][y2] = '+';
+					mat[x2][y2] = '2';
 				}
 			} else if (x2 == 14 && (y2 == 0 || y2 < 14)){ //Derecha
-				if (y2 == 7 && vuelta2 == 1)
-				{
-					mat[x2][y2] = 'x';
-					x2--;
-					pieza2 -> setPosX(x2);
-					mat[x2][y2] = '+';
-					if (x2 == 7 && y2 == 7)
-					{
-						k = dice1 + dice2;
-						continueP = false;
-						ganador = "El ganador es el jugador 1, con el color: " + pieza2 -> getColor() + "\n";
-					}
-				} else if (y2 == 7)
+				if (y2 == 7)
 				{
 					mat[x2][y2] = 'x';
 					y2++;
 					pieza2 -> setPosY(y2);
-					mat[x2][y2] = '+';
+					mat[x2][y2] = '2';
 					vuelta2++;
 				} else {
 					mat[x2][y2] = 'x';
 					y2++;
 					pieza2 -> setPosY(y2);
-					mat[x2][y2] = '+';
+					mat[x2][y2] = '2';
 				}
 			} else if ((x2 == 14 || x2 > 0) && y2 == 14){ //Arriba
-				if (x2 == 7 && vuelta2 == 1)
+				if (x2 == 7)
 				{
 					mat[x2][y2] = 'x';
-					y2--;
-					pieza2 -> setPosY(y2);
-					mat[x2][y2] = '+';
+					x2--;
+					pieza2 -> setPosX(x2);
+					mat[x2][y2] = '2';
+					vuelta2++;
+				} else {
+					mat[x2][y2] = 'x';
+					x2--;
+					pieza2 -> setPosX(x2);
+					mat[x2][y2] = '2';
+				}
+			}
+			if (pieza2 -> getColor() == "Roja")
+			{
+				if (y2 == 7 && vuelta2 == 4)
+				{
+					mat[x2][y2] = '%';
+					x2++;
+					pieza2 -> setPosX(x2);
+					mat[x2][y2] = '2';
 					if (x2 == 7 && y2 == 7)
 					{
 						k = dice1 + dice2;
 						continueP = false;
 						ganador = "El ganador es el jugador 1, con el color: " + pieza2 -> getColor() + "\n";
 					}
-				} else if (x2 == 7)
-				{
-					mat[x2][y2] = 'x';
-					x2--;
-					pieza2 -> setPosX(x2);
-					mat[x2][y2] = '+';
-					vuelta2++;
-				} else {
-					mat[x2][y2] = 'x';
-					x2--;
-					pieza2 -> setPosX(x2);
-					mat[x2][y2] = '+';
 				}
 			}
+			if (pieza2 -> getColor() == "Verde")
+			{
+				if (x2 == 7 && vuelta2 == 4)
+				{
+					mat[x2][y2] = '$';
+					y2++;
+					pieza2 -> setPosY(y2);
+					mat[x2][y2] = '2';
+					if (x2 == 7 && y2 == 7)
+					{
+						k = dice1 + dice2;
+						continueP = false;
+						ganador = "El ganador es el jugador 1, con el color: " + pieza2 -> getColor() + "\n";
+					}
+				}
+			}
+			if (pieza2 -> getColor() == "Amarillo") {
+				if (y2 == 7 && vuelta2 == 4)
+				{
+					mat[x2][y2] = '#';
+					x2--;
+					pieza2 -> setPosX(x2);
+					mat[x2][y2] = '2';
+					if (x2 == 7 && y2 == 7)
+					{
+						k = dice1 + dice2;
+						continueP = false;
+						ganador = "El ganador es el jugador 1, con el color: " + pieza2 -> getColor() + "\n";
+					}
+				}
+			}
+			if (pieza2 -> getColor() == "Azul")
+			{
+				if (x2 == 7 && vuelta2 == 4)
+				{
+					mat[x2][y2] = '/';
+					y2--;
+					pieza2 -> setPosY(y2);
+					mat[x2][y2] = '2';
+					if (x2 == 7 && y2 == 7)
+					{
+						k = dice1 + dice2;
+						continueP = false;
+						ganador = "El ganador es el jugador 1, con el color: " + pieza2 -> getColor() + "\n";
+					}
+				}
+			}
+
+
+
 		}
 
-	}//Fin while juego
+		imprimirMatriz(mat, size);
+}
+	//Fin while juego
 
-	imprimirMatriz(mat, size);
+
 	return 0;
 
 }
@@ -419,8 +454,8 @@ int tirarDado()
 	int resp;
 
 	srand(time(NULL));
-    resp = rand() % 6 + 1;
-    cout << "El numero que salio es: " << resp << "!\n";
+	resp = rand() % 6 + 1;
+	cout << "El numero que salio es: " << resp << "!\n";
 
 	return resp;
 }
