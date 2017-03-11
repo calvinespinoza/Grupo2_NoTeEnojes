@@ -19,10 +19,10 @@ class Pieza
 		~Pieza();
 		int getPosX();
 		int getPosY();
-		virtual string getColor();
+		virtual string getColor() = 0;
 		void setPosX(int);
 		void setPosY(int);
-		virtual void setColor(string);
+		virtual void setColor(string) = 0;
 };
 
 #endif

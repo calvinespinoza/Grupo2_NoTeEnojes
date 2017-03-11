@@ -24,10 +24,10 @@ int Pieza::getPosY()
 	return posy;
 }
 
-string Pieza::getColor()
+/*string Pieza::getColor()
 {
 	return color;
-}
+}*/
 
 void Pieza::setPosX(int pPosx)
 {
@@ -39,10 +39,10 @@ void Pieza::setPosY(int pPosy)
 	posy = pPosy;
 }
 
-void Pieza::setColor(string pColor)
+/*void Pieza::setColor(string pColor)
 {
 	color = pColor;
-}
+}*/
 
 Pieza::~Pieza()
 {
