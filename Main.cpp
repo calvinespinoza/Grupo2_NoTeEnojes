@@ -14,7 +14,10 @@ using namespace std;
 
 void imprimirMatriz(char**, int);
 char** inicializarMatriz(int);
-int tirarDado();
+int tirarDado1();
+int tirarDado2();
+int tirarDado3();
+int tirarDado4();
 
 int main()
 {
@@ -167,8 +170,8 @@ int main()
 	int dice1;
 	int dice2;
 	while (continueP == true) {
-		dice1 = tirarDado();
-		dice2 = tirarDado();
+		dice1 = tirarDado1();
+		dice2 = tirarDado2();
 		for (int k = 0; k < (dice1 + dice2); k++) {
 			if (x1 == 0 && (y1 > 0 || y1 == 14)) { //Izquierda
 				if(y1 == 7) {
@@ -291,8 +294,8 @@ int main()
 
 
 
-		dice1 = tirarDado();
-		dice2 = tirarDado();
+		dice1 = tirarDado3();
+		dice2 = tirarDado4();
 		for (int k = 0; k < (dice1 + dice2); k++) {
 			if (x2 == 0 && (y2 > 0 || y2 == 14)) { //Izquierda
 				if(y2 == 7) {
@@ -449,7 +452,40 @@ char** inicializarMatriz(int size){
 	return matriz;
 }
 
-int tirarDado()
+int tirarDado1()
+{
+	int resp;
+
+	srand(time(NULL));
+	resp = rand() % 6 + 1;
+	cout << "El numero que salio es: " << resp << "!\n";
+
+	return resp;
+}
+
+int tirarDado2()
+{
+	int resp;
+
+	srand(time(NULL));
+	resp = rand() % 6 + 1;
+	cout << "El numero que salio es: " << resp << "!\n";
+
+	return resp;
+}
+
+int tirarDado3()
+{
+	int resp;
+
+	srand(time(NULL));
+	resp = rand() % 6 + 1;
+	cout << "El numero que salio es: " << resp << "!\n";
+
+	return resp;
+}
+
+int tirarDado4()
 {
 	int resp;
 
