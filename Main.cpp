@@ -173,7 +173,7 @@ int main()
 	int cont1 = 0, cont2 = 0;
 	int win1 = 0, win2 = 0;
 	string stop;
-	while (win1 < 4 && win2 < 4) {
+//	while (win1 < 4 && win2 < 4) {
 		continueP = true;
 		while (continueP == true) {
 			cout << "JUGADOR 1: " << win1 << endl;
@@ -464,7 +464,7 @@ int main()
 			}
 
 			imprimirMatriz(mat, size);
-		}
+		//}
 }
 cout << ganador;
 	//Fin while juego
