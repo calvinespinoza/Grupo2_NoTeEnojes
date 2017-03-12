@@ -160,7 +160,7 @@ int main()
 				mat[i][j] = 'x';
 			else
 				mat[i][j] = ' ';
-		}
+		}		
 	}
 	imprimirMatriz(mat, size);
 
